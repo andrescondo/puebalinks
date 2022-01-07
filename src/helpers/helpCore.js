@@ -9,13 +9,18 @@ export const authenticate = (token) => {
 
 export const fetchRequest = (data) => {
   const { url, idUrl,method, ...rest } = data;
+  const body = {body: JSON.stringify(rest)}
+  
   return fetch(`${API}${url}/${idUrl ? idUrl : ''}`, {
     method: `${method ? method : "POST"}`,
     headers: {
       Accept: 'application/json',
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(rest),
+    if(rest){
+      body
+    }
+
   })
     .then(response => {
       return response.json();
