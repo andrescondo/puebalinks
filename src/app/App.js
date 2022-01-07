@@ -21,8 +21,8 @@ const App = () => {
           <PrivateRouter exact path={'/view-user/:id'} component={ViewUser} />
           <PrivateRouter exact path={'/edit-user/:id'} component={EditUser} />
 
-          <PublicRouter exact path="/auth/login" component={Login} />
-          <PublicRouter exact path="/auth/signup" component={Login} />
+          <PublicRouter exact path="/login" component={Login} />
+          <PublicRouter exact path="/signup" component={Login} />
         </Switch>
 
       </Layout>

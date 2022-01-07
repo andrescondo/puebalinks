@@ -19,7 +19,7 @@ const Home = () => {
 
   const handleDelete = (id) => {
     fetchRequest({url:'/api/users', idUrl:id , method:'DELETE'})
-    .then(res => console.log(res))
+    .then(res => alert('Eliminado con exito'))
   }
 
   return (

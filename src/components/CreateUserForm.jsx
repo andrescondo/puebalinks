@@ -24,6 +24,7 @@ const CreateUserForm = ({methodFetch, id}) => {
     if (name && job) {
       fetchRequest({name, job, method, url:'/api/users', idUrl})
       .then( res => {
+        console.log(res)
         alert('Listo')
         setInputs(initialState);
       })
