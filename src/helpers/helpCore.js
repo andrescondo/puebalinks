@@ -7,9 +7,26 @@ export const authenticate = (token) => {
   }
 }
 
+export const fetchPost = (data) => {
+  const { url, idUrl,method, ...rest } = data;
+  return fetch(`${API}${url}/${idUrl ? idUrl : ''}`, {
+    method: `${method ? method : "POST"}`,
+    headers: {
+      Accept: 'application/json',
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(rest)
+  })
+    .then(response => {
+      return response.json();
+    })
+    .catch(err => {
+      console.log(err);
+    })
+};
+
 export const fetchRequest = (data) => {
   const { url, idUrl,method, ...rest } = data;
-  const body = {body: JSON.stringify(rest)}
   
   return fetch(`${API}${url}/${idUrl ? idUrl : ''}`, {
     method: `${method ? method : "POST"}`,
@@ -17,9 +34,6 @@ export const fetchRequest = (data) => {
       Accept: 'application/json',
       "Content-Type": "application/json",
     },
-    if(rest){
-      body
-    }
 
   })
     .then(response => {

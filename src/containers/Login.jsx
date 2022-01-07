@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { authenticate, fetchRequest } from '../helpers/helpCore';
+import { authenticate, fetchPost, fetchRequest } from '../helpers/helpCore';
 import useAuth from "../hooks/useAuth";
 
 const initialState = {
@@ -16,7 +16,7 @@ const Login = () => {
 
     const {email, password} = inputs;
     if(email && password){
-      fetchRequest({email, password, url:'/api/login'})
+      fetchPost({email, password, url:'/api/login'})
       .then(res => {
         const {error, token} = res;
 
