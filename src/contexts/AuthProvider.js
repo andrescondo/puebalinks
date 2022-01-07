@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [jwt, setJwt] = useState(
-    () => window.localStorage.getItem('jwt')
+    () => window.localStorage.getItem('token')
   );
 
   return (

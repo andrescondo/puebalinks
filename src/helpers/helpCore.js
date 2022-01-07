@@ -1,6 +1,13 @@
-const API = ''
+const API = 'https://reqres.in'
 
-export const fetchPost = (data) => {
+export const authenticate = (token) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('token', token);
+
+  }
+}
+
+export const fetchRequest = (data) => {
   const { url, idUrl,method, ...rest } = data;
   return fetch(`${API}${url}/${idUrl ? idUrl : ''}`, {
     method: `${method ? method : "POST"}`,
